@@ -1,0 +1,77 @@
+/* ============= Divide ============= */
+@mixin divide-vertical($width: 1px, $height, $bgColor) {
+  width: $width;
+  height: $height;
+  background-color: $bgColor;
+}
+
+@mixin divide-horizon($height: 1px, $width, $bgColor) {
+  width: $width;
+  height: $height;
+  background-color: $bgColor;
+}
+
+/* ============= Button ============= */
+@mixin btn($width: 100%, $height: 48px, $padding: 0 20px, $size: 'md') {
+  @apply text-16 font-700;
+  display: inline-block;
+  width: $width;
+  height: $height;
+  line-height: $height;
+  padding: $padding;
+  border-radius: $radius-sm;
+  color: $white-00;
+  text-align: center;
+  box-sizing: border-box;
+  transition: $transition;
+  &:hover {
+    opacity: $state-hover;
+  }
+  &:active {
+    opacity: $state-active;
+  }
+  &:disabled {
+    cursor: not-allowed;
+    &:active {
+      opacity: 100%;
+    }
+    &:hover {
+      opacity: 100%;
+    }
+  }
+  @if ($size == 'sm') {
+    width: fit-content;
+    height: 36px;
+    line-height: 36px;
+    padding: 0 10px;
+  }
+  @if ($size == 'lg') {
+    height: 52px;
+  }
+}
+
+@mixin btn-text($color: $gray-500) {
+  position: relative;
+  line-height: 16px;
+  color: $color;
+  &:hover {
+    opacity: $state-hover;
+  }
+  &:active {
+    opacity: $state-active;
+  }
+  &:disabled {
+    color: $gray-300;
+    cursor: not-allowed;
+    &:active {
+      opacity: 100%;
+    }
+    &:hover {
+      opacity: 100%;
+    }
+  }
+}
+/* ============= Icon Path ============= */
+@mixin icon($name, $path: '/images/icons/', $format: 'svg', $size: '100%') {
+  background: url('#{$path}#{$name}.#{$format}') no-repeat center center/#{$size};
+}

@@ -9,7 +9,6 @@ import Markdown from 'unplugin-vue-markdown/vite'
 import VueMacros from 'unplugin-vue-macros/vite'
 import VueI18n from '@intlify/unplugin-vue-i18n/vite'
 import { VitePWA } from 'vite-plugin-pwa'
-import VueDevTools from 'vite-plugin-vue-devtools'
 import LinkAttributes from 'markdown-it-link-attributes'
 import Unocss from 'unocss/vite'
 import Shiki from 'markdown-it-shikiji'
@@ -18,12 +17,38 @@ import VueRouter from 'unplugin-vue-router/vite'
 import { VueRouterAutoImports } from 'unplugin-vue-router'
 
 export default defineConfig({
+  base: '/app/',
   resolve: {
     alias: {
       '~/': `${path.resolve(__dirname, 'src')}/`,
     },
   },
-
+  /**
+   * 빌드 시 해당 내용은 빌드에서 제외 됩니다.
+   * 로컬 환경에서 개발 진행 시, 사용하는 접속 정보 입니다.
+   */
+  server: {
+    /* 모바일 화면 확인용 스트립트입니다. */
+    host: true, // Host be set to true to use the network form to access project with ip
+    port: 3333, // port number
+    open: true, // Open browser automatically
+    cors: true, // cross-domain setting permission
+    strictPort: true, // If the port is occupied, exit directly
+    /* 모바일 화면 확인용 스트립트입니다. */
+    proxy: {
+      '/api/v1': {
+        target: '',
+        changeOrigin: true,
+        // path rewrite가 필요할 경우 사용
+        // rewrite: (path) => path.replace(/^\/api/, ''),
+      },
+      '/app/api': {
+        target: '',
+        changeOrigin: true,
+      },
+    },
+  },
+  // optimizeDeps: { exclude: ['fsevents'] },
   plugins: [
     VueMacros({
       plugins: {
@@ -104,8 +129,8 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.svg', 'safari-pinned-tab.svg'],
       manifest: {
-        name: 'Vitesse',
-        short_name: 'Vitesse',
+        name: 'Mobile 데이터팜',
+        short_name: 'M-데이터팜',
         theme_color: '#ffffff',
         icons: [
           {
@@ -140,8 +165,19 @@ export default defineConfig({
     WebfontDownload(),
 
     // https://github.com/webfansplz/vite-plugin-vue-devtools
-    VueDevTools(),
+    // VueDevTools(),
   ],
+  // SCSS 전역 사용
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `
+        @import "./src/styles/_variables.scss";
+        @import "./src/styles/_mixins.scss";
+      `,
+      },
+    },
+  },
 
   // https://github.com/vitest-dev/vitest
   test: {

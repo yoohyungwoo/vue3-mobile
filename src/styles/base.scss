@@ -1,0 +1,180 @@
+@charset "UTF-8";
+
+/* ============= Fonts ============= */
+@font-face {
+  font-family: 'NotoSansKR';
+  src: url('/fonts/NotoSansKR-Thin.otf') format('opentype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'NotoSansKR';
+  src: url('/fonts/NotoSansKR-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'NotoSansKR';
+  src: url('/fonts/NotoSansKR-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'NotoSansKR';
+  src: url('/fonts/NotoSansKR-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'NotoSansKR';
+  src: url('/fonts/NotoSansKR-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'NotoSansKR';
+  src: url('/fonts/NotoSansKR-Black.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Pretendard';
+  src: url('/fonts/Pretendard-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Pretendard';
+  src: url('/fonts/Pretendard-SemiBold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Pretendard';
+  src: url('/fonts/Pretendard-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ============= Layout ============= */
+html {
+  @apply flex flex-col;
+  overflow: hidden;
+  height: 100vh;
+  padding: 0 var(--sar) var(--sab) var(--sal);
+  /* ios 회전 시 글꼴 변경 방지 스타일 */
+  -webkit-text-size-adjust: 100%; /*Chrome, Safari, newer versions of Opera*/
+  -moz-text-size-adjust: 100%; /*Firefox*/
+  -ms-text-size-adjust: 100%; /*Ie*/
+  -o-text-size-adjust: 100%; /*old versions of Opera*/
+}
+body {
+  overflow: scroll;
+  overflow-wrap: break-word;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-width: $min-width;
+  max-width: $max-width;
+  margin: 0 auto;
+  word-break: keep-all;
+  -webkit-font-smoothing: antialiased;
+  -webkit-overflow-scrolling: touch;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  img {
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+  }
+}
+.light {
+  body {
+    color: $gray-900;
+  }
+}
+.dark {
+  body {
+    color: $d-gray-900;
+  }
+}
+
+/* ============= Style Reset ============= */
+body,
+main,
+button,
+input,
+select,
+td,
+textarea,
+th {
+  line-height: 1.2;
+  font-family: $font-pretendard;
+  font-weight: 400;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+// 공통 outline
+button,
+input,
+select,
+textarea {
+  outline: none;
+}
+
+// ios 사파리 input 스타일 초기화
+input {
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+/* ============= 웹 접근성 대체 텍스트 ============= */
+.hide {
+  overflow: hidden;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  white-space: nowrap;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+}
+
+.ih-full {
+  height: 100%;
+  /* 사파리 only */
+  @supports (-webkit-touch-callout: none) {
+    height: -webkit-fill-available;
+  }
+}
+
+em {
+  font-style: normal;
+}

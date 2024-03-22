@@ -1,6 +1,6 @@
 import type { Locale } from 'vue-i18n'
 import { createI18n } from 'vue-i18n'
-import type { UserModule } from '~/type/types'
+import type { UserModule } from '~/type'
 
 // Import i18n resources
 // https://vitejs.dev/guide/features.html#glob-import

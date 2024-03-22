@@ -1,13 +1,13 @@
 <script setup lang="ts">
-// https://github.com/vueuse/head
-// you can use this to manipulate the document head in any components,
-// they will be rendered correctly in the html results with vite-ssg
+import '~/styles/base.scss'
+import '~/styles/common.scss'
+
 useHead({
-  title: 'Vitesse',
+  title: 'LG U+ Mobile 데이터팜',
   meta: [
     {
       name: 'description',
-      content: 'Opinionated Vite Starter Template',
+      content: 'Mobile DataFarm',
     },
     {
       name: 'theme-color',

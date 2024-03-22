@@ -14,7 +14,9 @@
     "typecheck": "vue-tsc --noEmit",
     "up": "taze major -I",
     "postinstall": "npx simple-git-hooks",
-    "sizecheck": "npx vite-bundle-visualizer"
+    "sizecheck": "npx vite-bundle-visualizer",
+    "storybook": "storybook dev -p 6006 -s public",
+    "build-storybook": "storybook build -s public"
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.3.1",
@@ -35,9 +37,18 @@
     "@antfu/eslint-config": "^2.6.1",
     "@iconify-json/carbon": "^1.1.27",
     "@intlify/unplugin-vue-i18n": "^2.0.0",
+    "@storybook/addon-essentials": "^7.6.17",
+    "@storybook/addon-interactions": "^7.6.17",
+    "@storybook/addon-links": "^7.6.17",
+    "@storybook/blocks": "^7.6.17",
+    "@storybook/builder-vite": "^7.6.17",
+    "@storybook/test": "^7.6.17",
+    "@storybook/vue3": "^7.6.17",
+    "@storybook/vue3-vite": "^7.6.17",
     "@types/markdown-it-link-attributes": "^3.0.4",
     "@types/nprogress": "^0.2.3",
     "@unocss/eslint-config": "^0.58.1",
+    "@unocss/vite": "^0.58.5",
     "@vitejs/plugin-vue": "^5.0.0",
     "@vue-macros/volar": "^0.18.8",
     "@vue/test-utils": "^2.4.3",
@@ -48,17 +59,21 @@
     "eslint": "^8.56.0",
     "eslint-plugin-cypress": "^2.15.1",
     "eslint-plugin-format": "^0.1.0",
+    "eslint-plugin-storybook": "^0.8.0",
     "https-localhost": "^4.7.1",
     "lint-staged": "^15.2.0",
     "markdown-it-link-attributes": "^4.0.1",
     "markdown-it-shikiji": "^0.9.12",
     "pnpm": "^8.13.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "rollup": "^4.9.1",
     "shikiji": "^0.9.12",
     "simple-git-hooks": "^2.9.0",
+    "storybook": "^7.6.17",
     "taze": "^0.13.1",
     "typescript": "^5.3.3",
-    "unocss": "^0.58.1",
+    "unocss": "^0.58.5",
     "unplugin-auto-import": "^0.17.3",
     "unplugin-vue-components": "^0.26.0",
     "unplugin-vue-macros": "^2.7.7",
@@ -81,5 +96,10 @@
   },
   "lint-staged": {
     "*": "eslint --fix"
+  },
+  "eslintConfig": {
+    "extends": [
+      "plugin:storybook/recommended"
+    ]
   }
 }

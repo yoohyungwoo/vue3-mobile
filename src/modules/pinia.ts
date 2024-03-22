@@ -1,5 +1,5 @@
 import { createPinia } from 'pinia'
-import type { UserModule } from '~/type/types'
+import type { UserModule } from '~/type/'
 
 // Setup Pinia
 // https://pinia.vuejs.org/

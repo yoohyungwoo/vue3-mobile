@@ -1,14 +1,17 @@
-# Vue3 Mobile
+# Vue3 Mobile 데이터팜
+
 - Typescript, Vue3, Vitejs 기반 개발을 위해 사용을 위한 주요 가이드 모음
 - [vitesse](https://github.com/antfu/vitesse)를 기반으로 구성됨
 
 ## 가이드 구성 진행 사항
+
 - [x] Vue3 환경에서 Typescript 사용 가이드
 - [x] Framework 내 주요 사용 방안
-- [X] Coding Guide
+- [x] Coding Guide
 - [ ] Storybook Example Guide
 
 ## Framework 추가 할 수 있는 기능 들
+
 - pure javascript library에 대한 **Lazy** 로드
 - **Event Bus** 및 **Event Manager**
 - 다수 **Snippets**
